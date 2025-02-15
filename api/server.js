@@ -4,7 +4,6 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.static('public')); // Serve os arquivos frontend
 
 function interpretRage(code) {
     const lines = code.trim().split("\n");
@@ -45,10 +44,13 @@ function interpretRage(code) {
     return output;
 }
 
-app.post('/compile', (req, res) => {
-    const { code } = req.body;
-    const result = interpretRage(code);
-    res.json({ output: result });
-});
-
-app.listen(3000, () => console.log("🔥 RAGE!!! Compiler running on port 3000"));
+// Criar a API Serverless no Vercel
+module.exports = (req, res) => {
+    if (req.method === "POST") {
+        const { code } = req.body;
+        const result = interpretRage(code);
+        res.json({ output: result });
+    } else {
+        res.status(405).json({ error: "Method Not Allowed" });
+    }
+};
