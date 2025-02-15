@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: white;
+    text-align: center;
+}
+
+textarea {
+    width: 80%;
+    height: 200px;
+    background-color: #282828;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+pre {
+    width: 80%;
+    background-color: black;
+    color: #00ff00;
+    padding: 10px;
+    text-align: left;
+    white-space: pre-wrap;
+    margin: 20px auto;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+/* Estilo do rodapé */
+footer {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #282828;
+    color: white;
+    font-size: 16px;
+}
+
+footer a {
+    color: #00ffcc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
