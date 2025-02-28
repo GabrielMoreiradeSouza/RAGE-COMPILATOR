@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAGE!!! Web Compiler</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        textarea { width: 100%; height: 150px; }
+        button { margin-top: 10px; padding: 10px; cursor: pointer; }
+        pre { background: #222; color: #0f0; padding: 10px; min-height: 100px; }
+    </style>
+</head>
+<body>
+
+    <h2>🔥 RAGE!!! Web Compiler 🔥</h2>
+    <textarea id="rageCode" placeholder="Digite seu código RAGE!!! aqui"></textarea>
+    <button onclick="runRage()">Executar</button>
+    <h3>Saída:</h3>
+    <pre id="output"></pre>
+
+    <script>
+        function interpretRage(code) {
+            const lines = code.trim().split("\n");
+            let variables = [];
+            let output = "";
+
+            for (let line of lines) {
+                line = line.trim();
+
+                let match = line.match(/^GIMME A NUMBER!!! (\d+)$/);
+                if (match) {
+                    variables.push(parseInt(match[1]));
+                    continue;
+                }
+
+                if (line === "NOW ADD THEM!!!") {
+                    if (variables.length >= 2) {
+                        let result = variables[variables.length - 2] + variables[variables.length - 1];
+                        variables.push(result);
+                    } else {
+                        output += "🔥 ERROR: NOT ENOUGH NUMBERS TO ADD!!! 🔥\n";
+                    }
+                    continue;
+                }
+
+                if (line === "SHOW ME THE RESULT!!!") {
+                    if (variables.length > 0) {
+                        output += `💥 RESULT: ${variables[variables.length - 1]} 💥\n`;
+                    } else {
+                        output += "🔥 ERROR: NO RESULT AVAILABLE!!! 🔥\n";
+                    }
+                    continue;
+                }
+
+                output += `🤬 UNKNOWN COMMAND: ${line}\n`;
+            }
+
+            return output;
+        }
+
+        function runRage() {
+            const rageCode = document.getElementById("rageCode").value;
+            const outputElement = document.getElementById("output");
+            outputElement.textContent = interpretRage(rageCode);
+        }
+    </script>
+
+</body>
+</html>
