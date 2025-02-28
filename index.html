@@ -3,21 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAGE!!! Web Compiler</title>
+    <title>🔥 RAGE!!! Web Compiler 🔥</title>
+    <link rel="icon" type="image/png" href="rage-icon.png"> <!-- Ícone do site -->
+
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        textarea { width: 100%; height: 150px; }
-        button { margin-top: 10px; padding: 10px; cursor: pointer; }
-        pre { background: #222; color: #0f0; padding: 10px; min-height: 100px; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 120px; /* Tamanho da logo */
+            border-radius: 10px;
+            border: 3px solid #ff4c4c;
+            box-shadow: 0px 0px 15px rgba(255, 76, 76, 0.8);
+        }
+
+        .title-container {
+            text-align: left;
+            margin-left: 15px;
+        }
+
+        .title-container h1 {
+            font-size: 40px;
+            margin: 0;
+            color: #ff4c4c;
+        }
+
+        .title-container h2 {
+            font-size: 24px;
+            margin: 0;
+            color: #ff0000;
+        }
+
+        textarea {
+            width: 80%;
+            height: 150px;
+            background: #2c2c2c;
+            color: #0f0;
+            border: 2px solid #ff4c4c;
+            padding: 10px;
+            font-size: 16px;
+            resize: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: #ff4c4c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #cc0000;
+        }
+
+        pre {
+            background: #222;
+            color: #0f0;
+            padding: 15px;
+            width: 80%;
+            text-align: left;
+            border: 2px solid #ff4c4c;
+            border-radius: 5px;
+            min-height: 100px;
+            overflow-x: auto;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #bbb;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ff4c4c;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
-    <h2>🔥 RAGE!!! Web Compiler 🔥</h2>
+    <!-- Header -->
+    <div class="header-container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="rage-logo.png" alt="RAGE!!! Logo">
+        </div>
+        
+        <!-- Texto ao lado da logo -->
+        <div class="title-container">
+            <h1>RAGE!!!</h1>
+            <h2>COMPILATOR</h2>
+        </div>
+    </div>
+
     <textarea id="rageCode" placeholder="Digite seu código RAGE!!! aqui"></textarea>
+    <br>
     <button onclick="runRage()">Executar</button>
     <h3>Saída:</h3>
     <pre id="output"></pre>
+
+    <footer>
+        Desenvolvido por <strong>Gabriel Moreira de Souza</strong> | 
+        <a href="https://gabrielmoreiradesouza-dev.vercel.app/" target="_blank">Website</a>
+        <br>
+         Agradecimento especial a <strong>Deyvid</strong> e <strong>Hugo</strong> por suas contribuições e dicas! 
+    </footer>
 
     <script>
         function interpretRage(code) {
